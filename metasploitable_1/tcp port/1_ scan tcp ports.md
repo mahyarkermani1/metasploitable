@@ -15,57 +15,40 @@ tcp روی ماشین هدف چی هست!
 
 > nmap: از این ابزار توی تست‌های خودمون زیاد استفاده می‌کنیم. اینجاهم به وضعیت پورت‌های تی‌سی‌پی نگاهی می‌ندازیم
 
-> sS- از سوییچ‌های nmap که باعث میشه پکت syn بفرسته ( در اینجا هدف اینه که فقط وضعیت پورت‌های tcp را بررسی کنیم )
+> -sS از سوییچ‌های nmap که باعث میشه پکت syn بفرسته ( در اینجا هدف اینه که فقط وضعیت پورت‌های tcp را بررسی کنیم )
 
-> Pn- به معنی اینه که ما می‌دونیم این آدرس آیپی لایو و توی شبکه هست و به nmap میگیم که نیازی نیست دوباره اون را پینگ بگیره یا up بودن اون هاست را چک کنه ( که در وقت اسکن صرفه‌جویی میشه )
+> -Pn به معنی اینه که ما می‌دونیم این آدرس آیپی لایو و توی شبکه هست و به nmap میگیم که نیازی نیست دوباره اون را پینگ بگیره یا up بودن اون هاست را چک کنه ( که در وقت اسکن صرفه‌جویی میشه )
 
-> p- یک رنج از پورت را بهش معرفی می‌کنیم که اینجا گفتیم از پورت ۱ تا ۶۵۵۳۵ را اسکن کنه
+> -p یک رنج از پورت را بهش معرفی می‌کنیم که اینجا گفتیم از پورت ۱ تا ۶۵۵۳۵ را اسکن کنه
 
-> T- برای سرعت اسکن و تعداد همزمانی ارسال پکت‌ها به سمت تارگت که بین ۱ تا ۵ تعریف میشه
+> -T برای سرعت اسکن و تعداد همزمانی ارسال پکت‌ها به سمت تارگت که بین ۱ تا ۵ تعریف میشه
       
     
 پس درنهایت اینجا من ماشین‌مجازی متاسپلویت خودم را به آدرس 192.168.56.102 برای پورت‌های tcp (-sS) از پورت ۱ تا ۶۵۵۳۵ ( تمام شماره پورت‌های موجود ) اسکن می‌کنم تا ببینم وضعیت پورت‌ها به چه صورتی است. وقتی یک رنج از پورت‌هارو اسکن کنیم، به صورت پیشفرض nmp پورت‌های باز را فقط نشون میده ( که خب اینجا نیازی به دونستن پورت‌های بسته نداریم ).
 این خروجی دستور بالا است:
 
 ```
-Starting Nmap 7.94 ( https://nmap.org ) at 2024-04-14 18:58 +0330
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-07-01 18:44 +0330
 Nmap scan report for 192.168.56.102
-Host is up (0.000092s latency).
-Not shown: 65506 closed tcp ports (reset)
-PORT      STATE SERVICE
-21/tcp    open  ftp
-22/tcp    open  ssh
-23/tcp    open  telnet
-25/tcp    open  smtp
-53/tcp    open  domain
-80/tcp    open  http
-111/tcp   open  rpcbind
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-512/tcp   open  exec
-513/tcp   open  login
-514/tcp   open  shell
-1099/tcp  open  rmiregistry
-1524/tcp  open  ingreslock
-2049/tcp  open  nfs
-2121/tcp  open  ccproxy-ftp
-3306/tcp  open  mysql
-3632/tcp  open  distccd
-5432/tcp  open  postgresql
-5900/tcp  open  vnc
-6000/tcp  open  X11
-6667/tcp  open  irc
-6697/tcp  open  ircs-u
-8009/tcp  open  ajp13
-8180/tcp  open  unknown
-8787/tcp  open  msgsrvr
-33847/tcp open  unknown
-35181/tcp open  unknown
-35811/tcp open  unknown
-41689/tcp open  unknown
-MAC Address: 08:00:27:F6:23:56 (Oracle VirtualBox virtual NIC)
+Host is up (0.000088s latency).
+Not shown: 65522 closed tcp ports (reset)
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+23/tcp   open  telnet
+25/tcp   open  smtp
+53/tcp   open  domain
+80/tcp   open  http
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3306/tcp open  mysql
+3632/tcp open  distccd
+5432/tcp open  postgresql
+8009/tcp open  ajp13
+8180/tcp open  unknown
+MAC Address: 08:00:27:B8:DA:1E (Oracle VirtualBox virtual NIC)
 
-Nmap done: 1 IP address (1 host up) scanned in 15.48 seconds
+Nmap done: 1 IP address (1 host up) scanned in 1.10 seconds
 ```
 # جمع‌بندی
 توی این قسمت پورت‌های tcp باز را روی تارگت پیدا کردیم و در قسمت بعدی میریم سراغ تست کردن این‌که روی هر پورت چه چیزهایی وجود داره و قراره باهاشون چیکار کنیم.
